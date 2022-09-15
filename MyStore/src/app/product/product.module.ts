@@ -18,7 +18,10 @@ import { ProductQuantityComponent } from './components/product-quantity/product-
     RouterModule.forChild([
       { path: '', redirectTo: 'products', pathMatch: 'full' },
       { path: 'products', component: ProductListComponent },
-      { path: 'products/:id', component: ProductDetailsComponent },
+      {
+        path: 'products/:id/product-details/:quantity',
+        component: ProductDetailsComponent,
+      },
     ]),
   ],
 })

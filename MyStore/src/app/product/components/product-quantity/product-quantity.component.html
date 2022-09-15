@@ -2,6 +2,7 @@
   class="form-select form-select-sm"
   aria-label=".form-select-sm example"
   (change)="onProductQuantityChange($event)"
+  [value]="product?.quantity"
 >
   <option value="1">1</option>
   <option value="2">2</option>

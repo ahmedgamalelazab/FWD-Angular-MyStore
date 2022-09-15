@@ -10,7 +10,9 @@ export class ProductComponent implements OnInit {
   @Input() product?: Product;
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.product!.quantity = 1;
+  }
 
   onProductQuantityChangeEvent(product: Product) {
     //update the current product according the quantity change
