@@ -1,0 +1,32 @@
+<div
+  class="container d-flex flex-column align-items-center justify-content-center"
+>
+  <!-- *image -->
+  <div class="card border-primary">
+    <img class="card-img-top p-4" [src]="product?.url" alt="Title" />
+  </div>
+  <!-- *name -->
+  <h5 class="mt-2">{{ product?.name }}</h5>
+  <!-- *price -->
+  <h5 class="mt-2">${{ product?.price }}</h5>
+  <!-- *quantity -->
+  <app-product-quantity
+    (onChange)="onProductQuantityChangeEvent($event)"
+    class="w-50 mt-2"
+    [product]="product"
+  ></app-product-quantity>
+  <!-- *addTocard -->
+  <div class="w-50 mt-2">
+    <div class="d-grid gap-2">
+      <button
+        type="button"
+        name=""
+        id=""
+        class="btn btn-primary"
+        (click)="addToCard(product!)"
+      >
+        Add To Card
+      </button>
+    </div>
+  </div>
+</div>

@@ -66,3 +66,35 @@ module.exports.insertProduct = async (req, res, next) => {
     });
   }
 };
+
+/**
+ *
+ * @param {request} req
+ * @param {response} res
+ * @param {Function} next
+ */
+module.exports.getProductById = async (req, res, next) => {
+  const { id } = req.params;
+  if (id) {
+    const result = await productServiceInstance.findProductById(id);
+    if (result) {
+      res.status(HttpStatus.OK).json({
+        success: true,
+        statusCode: HttpStatus.OK,
+        data: result,
+      });
+    } else {
+      res.status(HttpStatus.InternalServerError).json({
+        success: false,
+        statusCode: HttpStatus.InternalServerError,
+        data: false,
+      });
+    }
+  } else {
+    res.status(HttpStatus["Bad Request"]).json({
+      success: false,
+      statusCode: HttpStatus["Bad Request"],
+      data: null,
+    });
+  }
+};
