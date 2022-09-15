@@ -1,3 +1,4 @@
+import { AppRoutingModule } from './app-routing.module';
 import { ProductModule } from './product/product.module';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { NgModule } from '@angular/core';
@@ -9,11 +10,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent, NotfoundComponent],
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot([{ path: '**', component: NotfoundComponent }]),
-    ProductModule,
-  ],
+  imports: [BrowserModule, ProductModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
