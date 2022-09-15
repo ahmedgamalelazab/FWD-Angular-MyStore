@@ -1,0 +1,31 @@
+//navbar component
+
+.appNav {
+  width: 100vw;
+  min-height: 80px;
+  color: $app_base_font_color;
+  background-color: $app_base_color;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  ul {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    li {
+      text-decoration: none;
+      list-style-type: none;
+      margin: 0px 10px;
+      a {
+        text-decoration: none;
+        color: $app_base_font_color;
+      }
+    }
+  }
+}
