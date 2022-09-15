@@ -1,0 +1,50 @@
+<div class="form-container">
+  <form>
+    <!-- fullname -->
+    <div class="mb-3">
+      <label for="FullName" class="form-label">FullName</label>
+      <input
+        type="text"
+        class="form-control"
+        name="FullName"
+        id="FullName"
+        aria-describedby="helpId"
+        placeholder="(minimum 3 characters)"
+      />
+      <div class="alert alert-warning mt-2 mb-2" [hidden]="true">error</div>
+    </div>
+    <!-- address -->
+    <div class="mb-3">
+      <label for="Address" class="form-label">Address</label>
+      <input
+        type="text"
+        class="form-control"
+        name="Address"
+        id="Address"
+        aria-describedby="helpId"
+        placeholder="(minimum 6 characters)"
+      />
+      <div class="alert alert-warning mt-2 mb-2" [hidden]="true">error</div>
+    </div>
+    <!-- creditNumber -->
+    <div class="mb-3">
+      <label for="CreditNumber" class="form-label">Credit Number</label>
+      <input
+        type="text"
+        class="form-control"
+        name="CreditNumber"
+        id="CreditNumber"
+        aria-describedby="helpId"
+        placeholder="(16-digit number)"
+      />
+      <small id="helpId" class="form-text text-muted"
+        >we'll never share your payment detials with anyone else .</small
+      >
+      <div class="alert alert-warning mt-2 mb-2" [hidden]="true">error</div>
+    </div>
+    <!--submit-->
+    <button type="submit" class="btn btn-primary" [disabled]="true">
+      Submit
+    </button>
+  </form>
+</div>

@@ -1,0 +1,27 @@
+<div class="container p-5" *ngIf="isCartEmpty === true">
+  <div class="alert alert-success">
+    <h5>the cart is empty !</h5>
+  </div>
+</div>
+
+<div class="container p-5" *ngIf="isCartEmpty === false">
+  <div class="row">
+    <div class="col-6">
+      <!-- products -->
+      <div class="container cart-list-container">
+        <app-cart-item
+          *ngFor="let product of products"
+          class="container"
+          [product]="product"
+        >
+        </app-cart-item>
+      </div>
+      <div class="container">
+        <h4>Total ${{ total }}</h4>
+      </div>
+    </div>
+    <div class="col-6">
+      <app-check-out></app-check-out>
+    </div>
+  </div>
+</div>
