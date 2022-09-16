@@ -1,12 +1,11 @@
 import { Product } from './../product/types';
-import { CheckOut } from './types';
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class ShoppingCartService extends BehaviorSubject<boolean> {
-  customerCheckOut?: CheckOut;
   products: Product[];
+  total: number = 0;
   constructor() {
     super(true);
     this.products = [];
@@ -40,5 +39,18 @@ export class ShoppingCartService extends BehaviorSubject<boolean> {
     } else {
       return false;
     }
+  }
+  clear() {
+    this.products.forEach((p) => {
+      this.removeProduct(p._id);
+    });
+  }
+
+  submitTotal(total: number): void {
+    this.total = total;
+  }
+
+  getTotal(): number {
+    return this.total;
   }
 }

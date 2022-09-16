@@ -1,3 +1,4 @@
+import { ShoppingCheckoutService } from './../../shopping-check-out.service';
 import { Product } from './../../../product/types';
 import { ShoppingCartService } from './../../shopping-cart.service';
 import { Component, OnInit } from '@angular/core';
@@ -16,6 +17,7 @@ export class CartListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    //tracking down the cart empty state
     this.shoppingCartService.subscribe((empty) => {
       this.isCartEmpty = empty;
       console.log(empty);
@@ -23,6 +25,7 @@ export class CartListComponent implements OnInit {
     this.products = this.shoppingCartService.getProducts();
     this.products.forEach((p) => {
       this.total += p.price * p.quantity!;
+      this.shoppingCartService.submitTotal(this.total);
     });
   }
 }

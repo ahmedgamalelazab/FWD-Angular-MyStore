@@ -1,5 +1,5 @@
 <div class="form-container">
-  <form>
+  <form (ngSubmit)="onSubmit(form)" #form="ngForm">
     <!-- fullname -->
     <div class="mb-3">
       <label for="FullName" class="form-label">FullName</label>
@@ -10,8 +10,16 @@
         id="FullName"
         aria-describedby="helpId"
         placeholder="(minimum 3 characters)"
+        [(ngModel)]="checkout.fullName"
+        #fullname="ngModel"
+        minlength="3"
       />
-      <div class="alert alert-warning mt-2 mb-2" [hidden]="true">error</div>
+      <div
+        class="alert alert-danger mt-2 mb-2"
+        *ngIf="fullname.invalid && (fullname.dirty || fullname.touched)"
+      >
+        full name must be more than 3 chars
+      </div>
     </div>
     <!-- address -->
     <div class="mb-3">
@@ -23,8 +31,16 @@
         id="Address"
         aria-describedby="helpId"
         placeholder="(minimum 6 characters)"
+        [(ngModel)]="checkout.address"
+        #address="ngModel"
+        minlength="6"
       />
-      <div class="alert alert-warning mt-2 mb-2" [hidden]="true">error</div>
+      <div
+        class="alert alert-danger mt-2 mb-2"
+        *ngIf="address.invalid && (address.dirty || address.touched)"
+      >
+        email address must be more than 6 chars
+      </div>
     </div>
     <!-- creditNumber -->
     <div class="mb-3">
@@ -36,14 +52,35 @@
         id="CreditNumber"
         aria-describedby="helpId"
         placeholder="(16-digit number)"
+        [(ngModel)]="checkout.creditCardNumber"
+        #creditNumber="ngModel"
+        minlength="16"
       />
+      <div
+        class="alert alert-danger mt-2 mb-2"
+        *ngIf="
+          creditNumber.invalid && (creditNumber.dirty || creditNumber.touched)
+        "
+      >
+        credit card numbers can't be less than 16 digits
+      </div>
       <small id="helpId" class="form-text text-muted"
         >we'll never share your payment detials with anyone else .</small
       >
-      <div class="alert alert-warning mt-2 mb-2" [hidden]="true">error</div>
     </div>
     <!--submit-->
-    <button type="submit" class="btn btn-primary" [disabled]="true">
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="
+        creditNumber.invalid == true ||
+        address.invalid == true ||
+        fullname.invalid == true ||
+        creditNumber.pristine ||
+        address.pristine ||
+        creditNumber.pristine
+      "
+    >
       Submit
     </button>
   </form>
