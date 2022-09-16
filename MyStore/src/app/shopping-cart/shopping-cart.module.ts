@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     FormsModule,
     CommonModule,
-    RouterModule.forChild([{ path: 'cart', component: CartListComponent }]),
+    RouterModule.forChild([{ path: '', component: CartListComponent }]),
   ],
   exports: [FormsModule],
 })

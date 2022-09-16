@@ -14,8 +14,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
   declarations: [AppComponent, NavbarComponent, NotfoundComponent],
   imports: [
     BrowserModule,
-    ProductModule,
-    ShoppingCartModule,
+    // ProductModule,
+    // ShoppingCartModule,
     OrderModule,
     AppRoutingModule,
     HttpClientModule,

@@ -16,10 +16,10 @@ import { ProductQuantityComponent } from './components/product-quantity/product-
   imports: [
     CommonModule,
     RouterModule.forChild([
-      { path: '', redirectTo: 'products', pathMatch: 'full' },
-      { path: 'products', component: ProductListComponent },
+      // { path: '', redirectTo: 'products', pathMatch: 'full' },
+      { path: '', component: ProductListComponent },
       {
-        path: 'products/:id/product-details/:quantity',
+        path: ':id/product-details/:quantity',
         component: ProductDetailsComponent,
       },
     ]),
