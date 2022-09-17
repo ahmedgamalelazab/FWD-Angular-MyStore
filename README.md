@@ -12,5 +12,16 @@
 8. run the command ng-serve o , make sure the nodejs backend working , or the project won't find a way to grap the data , I KNOW YOU HAVE ASKED ONLY FOR ANGULAR ,` but i wanted to review nodejs on my way` .
 9. the project has guard on orders , so follow the steps and then it will allow you to submit an order .
 
+# description : 
+
+- e-commerce simple application with the following features : 
+
+- Product list page, which displays the available products for the user to choose and add to their cart (in various quantities)
+- Product details page, which displays more information about any particular product
+- Shopping cart, which includes the products that the user has added to their cart
+- Checkout form, which collects information about the user (e.g., name, address, payment details, etc.)
+Order confirmation page, which shows the outcome after the user completes the checkout process (i.e., submits the checkout form)
+
+
 # demo :
 ![demo](demo.gif)

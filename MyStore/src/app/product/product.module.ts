@@ -5,6 +5,9 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ProductComponent } from './components/product/product.component';
 import { ProductQuantityComponent } from './components/product-quantity/product-quantity.component';
+import {ToastModule} from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+
 
 @NgModule({
   declarations: [
@@ -14,6 +17,7 @@ import { ProductQuantityComponent } from './components/product-quantity/product-
     ProductQuantityComponent,
   ],
   imports: [
+    ToastModule,
     CommonModule,
     RouterModule.forChild([
       // { path: '', redirectTo: 'products', pathMatch: 'full' },
@@ -24,5 +28,7 @@ import { ProductQuantityComponent } from './components/product-quantity/product-
       },
     ]),
   ],
+  exports:[ToastModule],
+  providers:[MessageService]
 })
 export class ProductModule {}

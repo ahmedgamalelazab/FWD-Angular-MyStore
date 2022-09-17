@@ -1,6 +1,8 @@
 import { ShoppingCartService } from './../../../shopping-cart/shopping-cart.service';
 import { Product } from './../../types';
 import { Component, Input, OnInit } from '@angular/core';
+import {MessageService} from 'primeng/api';
+
 
 @Component({
   selector: 'app-product',
@@ -9,7 +11,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ProductComponent implements OnInit {
   @Input() product?: Product;
-  constructor(private shoppingCartService: ShoppingCartService) {}
+  constructor(private shoppingCartService: ShoppingCartService , private messageService:MessageService) {}
 
   ngOnInit(): void {
     this.product!.quantity = 1;
@@ -22,5 +24,6 @@ export class ProductComponent implements OnInit {
 
   addToCard(product: Product) {
     this.shoppingCartService.addProduct(product);
+    this.messageService.add({key:"myKey1",closable:true,life:1000,severity:'success',summary:'Cart Notification', detail:'Product has been added succssfully!'})
   }
 }

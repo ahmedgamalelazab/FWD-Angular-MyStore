@@ -1,3 +1,4 @@
+import { ShoppingCheckoutService } from './shopping-check-out.service';
 import { Product } from './../product/types';
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
@@ -6,7 +7,9 @@ import { Observable, BehaviorSubject } from 'rxjs';
 export class ShoppingCartService extends BehaviorSubject<boolean> {
   products: Product[];
   total: number = 0;
-  constructor() {
+  constructor(
+    private checkoutService:ShoppingCheckoutService
+  ) {
     super(true);
     this.products = [];
   }
@@ -28,8 +31,14 @@ export class ShoppingCartService extends BehaviorSubject<boolean> {
   removeProduct(productId: string) {
     this.products = this.products?.filter((p) => p._id !== productId);
     if (this.products.length === 0) {
+      this.checkoutService.checkout = {
+        address : "",
+        fullName : "",
+        creditCardNumber : "",
+      }
       this.next(true);
     }
+    return this.products;
   }
 
   findProductById(id: string): boolean {

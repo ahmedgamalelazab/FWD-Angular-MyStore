@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 @Injectable({ providedIn: 'root' })
 export class ShoppingCheckoutService extends BehaviorSubject<boolean> {
   checkout: CheckOut;
+  sentCheckout:CheckOut;
   isCheckoutValid: boolean = false;
   constructor() {
     super(false); // the form is not valid
@@ -13,6 +14,11 @@ export class ShoppingCheckoutService extends BehaviorSubject<boolean> {
       address: '',
       creditCardNumber: '',
     };
+    this.sentCheckout = {
+      fullName: '',
+      address: '',
+      creditCardNumber: '',
+    }
     this.subscribe((validationState) => {
       this.isCheckoutValid = validationState;
     });
@@ -27,9 +33,12 @@ export class ShoppingCheckoutService extends BehaviorSubject<boolean> {
     this.next(true);
   }
   getCheckout() {
+    return this.sentCheckout;
+  }
+  getCheckoutForForm() {
     return this.checkout;
   }
   setCheckout(checkout: CheckOut) {
-    this.checkout = checkout;
+    this.sentCheckout = checkout;
   }
 }

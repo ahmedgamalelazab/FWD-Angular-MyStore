@@ -1,5 +1,5 @@
 import { Product } from './../../../product/types';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-cart-item',
@@ -8,8 +8,15 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CartItemComponent implements OnInit {
   @Input() product?: Product;
+  @Output() onRemoveEvent : EventEmitter<Product> = new EventEmitter<Product>();
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  emitProductOnRemove(product:Product){
+    console.log(product);
+    this.onRemoveEvent.emit(product);
+  }
+
 }

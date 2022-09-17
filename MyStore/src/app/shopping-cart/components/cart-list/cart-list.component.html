@@ -1,3 +1,6 @@
+<p-toast key="myKey2"></p-toast>
+
+
 <div class="container p-5" *ngIf="isCartEmpty === true">
   <div class="alert alert-success">
     <h5>the cart is empty !</h5>
@@ -9,7 +12,7 @@
     <div class="col-6">
       <!-- products -->
       <div class="container cart-list-container">
-        <app-cart-item
+        <app-cart-item (onRemoveEvent)="removeProduct($event)"
           *ngFor="let product of products"
           class="container"
           [product]="product"
